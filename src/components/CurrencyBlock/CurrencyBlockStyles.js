@@ -9,8 +9,8 @@ import {
 } from '../../styles/colors'
 import { fontFamily } from '../../styles/fonts'
 
-const arrowImg = '/images/ArrowDown.svg'
-const closeImg = '/images/Close.svg'
+const arrowImg = '/CryptoExchange/images/ArrowDown.svg'
+const closeImg = '/CryptoExchange/images/Close.svg'
 
 export const StyledSelect = styled.div`
   position: relative;

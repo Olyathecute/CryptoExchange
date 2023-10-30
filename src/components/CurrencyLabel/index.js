@@ -1,6 +1,6 @@
 import { Wrapper, Text } from './CurrencyLabelStyles'
 
-const defaultImg = '/images/btc.svg'
+const defaultImg = '/CryptoExchange/images/btc.svg'
 
 function CurrencyLabel({ image, ticker = 'coin', name }) {
   return (

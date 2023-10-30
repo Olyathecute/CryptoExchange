@@ -122,7 +122,7 @@ function Main({ data }) {
           trigger={setInputWasChanged}
           inputDisable={!currenciesAreSet}
         />
-        {isLoading || isFetching ? <Loader size='small' /> : <Swap src='/images/swap.svg' alt='' />}
+        {isLoading || isFetching ? <Loader size='small' /> : <Swap src='/CryptoExchange/images/swap.svg' alt='' />}
         <CurrencyBlock
           inputName='right'
           currencies={data}
