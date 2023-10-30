@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useQuery } from 'react-query'
+import { getListOfAvailableCurrencies } from './requests'
+import Main from './page/Main'
+import Loader from './components/Loader'
+import { Container, ErrorMessage } from './AppStyles'
 
 function App() {
+  const {
+    isLoading,
+    data = [],
+    error,
+  } = useQuery({
+    queryKey: ['currencies'],
+    queryFn: getListOfAvailableCurrencies,
+    retry: 2,
+  })
+
+  if (error)
+    return (
+      <Container>
+        <ErrorMessage>Something went wrong try again later</ErrorMessage>
+      </Container>
+    )
+
+  if (isLoading)
+    return (
+      <Container>
+        <Loader size='big' />
+      </Container>
+    )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container>
+      <Main data={data} />
+    </Container>
+  )
 }
 
-export default App;
+export default App
